@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MVC_CORE.Models.Result>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/student.cshtml";
+}
+
+<h1>Index</h1>
+
+
+
+
+
+
+<table class="table">
+    <thead style="background-color: #cac8ed">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.studen_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.exam_result)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.studen_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.exam_result)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Id)
+            </td>
+            <td>
+         
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

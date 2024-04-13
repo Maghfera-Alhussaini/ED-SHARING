@@ -1,0 +1,42 @@
+﻿
+@model List<MVC_CORE.Models.Questions>
+@{
+    ViewData["Title"] = "exam2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<div class="container">
+    @foreach (var i in Model)
+    {
+        <h1>@i.Questions_text</h1>
+        <hr>
+        <h5>1-  @i.Questions_ans1 </h5>
+        <h5>2-  @i.Questions_ans2 </h5>
+        <h5>3-  @i.Questions_ans3</h5>
+        <hr>
+
+
+        <form asp-action="result" asp-controller="My" method="get">
+            <div class="panel-body">
+                <input type="hidden" value="@ViewBag.qid" name="qid" />
+                <input type="hidden" value="@ViewBag.q" name="q" />
+
+                <select class="form-control" name="ans" style="background-color: #e3e6f0; ">
+
+                    <option disabled selected> --Tap to select an option -- </option>
+                    <option>@i.Questions_ans1</option>
+                    <option> @i.Questions_ans2 </option>
+                    <option>@i.Questions_ans3</option>
+
+                </select>
+
+                <hr>
+                <div class="mar-top clearfix">
+                    <button class="btn btn-sm btn-primary  pull-right" type="submit"><i class="fa fa-pen fa-fw"></i> Set answer</button>
+
+                </div>
+            </div>
+        </form>
+    }
+
+</div>

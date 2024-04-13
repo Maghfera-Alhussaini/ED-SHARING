@@ -1,0 +1,119 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>cirti</title>
+</head>
+<body>
+
+
+
+
+
+
+    <br /><br />
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <center>
+                    <div class="outer-border">
+                        <div class="inner-dotted-border">
+                            <span class="certification">Certificate of Completion</span>
+                            <br><br>
+                            <span class="certify"><i>This is to certify that</i></span>
+                            <br><br>
+
+                            <span class="name"><b> @ViewBag.y</b></span><br /><br />
+                            <center>
+                                <img style="width: 200px; height:200px;  " src="~/img/black yellow minimalist Idea Logo (5).png" />
+                            </center><br />
+                            <span class="certify"><i>has successfully completed the certification</i></span> <br /><br />
+                            <span class="fs-30">@ViewBag.x</span> <br /><br />
+                            <span class="fs-20">with score of <b>A+</b></span> <br /><br /><br /><br />
+                            <span class="certify"><i>dated</i></span><br>
+
+                            <span class="fs-30 " id="time"></span><br />
+                        </div>
+                    </div>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <style>
+
+        .outer-border {
+            width: 700px;
+            height: 700px;
+            padding: 20px;
+            text-align: center;
+            border: 10px solid #673AB7;
+        }
+
+        .inner-dotted-border {
+            width: 650px;
+            height: 650px;
+            padding: 20px;
+            text-align: center;
+            border: 5px solid #673AB7;
+            border-style: dotted;
+        }
+
+        .certification {
+            font-size: 50px;
+            font-weight: bold;
+            color: #663ab7;
+        }
+
+        .certify {
+            font-size: 25px;
+        }
+
+        .name {
+            font-size: 30px;
+            color: green;
+        }
+
+        .fs-30 {
+            font-size: 30px;
+        }
+
+        .fs-20 {
+            font-size: 20px;
+        }
+    </style>
+
+
+    <script>
+        window.onload = function () {
+            var currentTime = new Date();
+            var day = currentTime.getDate();
+            var month = currentTime.getMonth() + 1; // تمتلئ القيمة بين 0 و 11، لذلك نقوم بإضافة 1
+            var year = currentTime.getFullYear();
+           
+            var formattedTime = day + "/" + month + "/" + year;
+
+            // التحقق مما إذا كان هناك تاريخ محفوظ في المخزن المحلي
+            if (localStorage.getItem("savedTime")) {
+                // استرجاع التاريخ المحفوظ من المخزن المحلي
+                var savedTime = localStorage.getItem("savedTime");
+                document.getElementById("time").innerHTML = savedTime;
+            } else {
+                // حفظ التاريخ الحالي في المخزن المحلي
+                localStorage.setItem("savedTime", formattedTime);
+                document.getElementById("time").innerHTML =  formattedTime;
+            }
+        };
+    </script>
+
+
+
+
+</body>
+</html>

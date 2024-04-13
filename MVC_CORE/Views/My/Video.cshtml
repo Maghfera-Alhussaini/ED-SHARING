@@ -1,0 +1,58 @@
+﻿@model List<MVC_CORE.Models.Video>
+@{
+    ViewData["Title"] = "Video";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="form-group ">
+    <div class="container ">
+        @foreach (var i in Model)
+        {
+            <div class="d-flex justify-content-center">
+
+                <video style="padding: 2%;"
+                       class="col-12 justify-content-center bg-secondary "
+                       controls
+                       autoplay
+                       loop
+                       muted
+                       preload="auto"
+                       poster="poster.png">
+                    <source src=@Url.Content(i.Source) type="video/mp4" />
+                    <source src="" type="video/webm" />
+
+                </video>
+            </div>
+            <form asp-action="AddComment" asp-controller="My"   asp-route-id="@i.Id" method="get">
+                <div class="row" style="padding: 2%;">
+                    <div class="col-10 ">
+                        <input type="hidden" name="courseid" value="@i.CourseId"  />
+                        <input class="form-control" type="text" placeholder="Write a comment.." name="comment" id="comment" required>
+                    </div>
+                    <div class="col-2">
+                        <input class="btn btn-primary mb-2" value="Add Comment" type="submit">
+                    </div>
+                </div>
+            </form>}
+
+        @foreach (var item in ViewBag.k)
+        {
+
+            <div class="row">
+                <div class="col-2">
+                   
+                    <p class=" position-relative border bg-dark text-white mb-5 p-3 " style="width:250px;">@item.useremail </p>
+                </div>
+                <div class="col-8">
+                    <h3 class=" position-relative border bg-dark text-white mb-5 p-3 ml-4 ">@item.Contents </h3>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
+

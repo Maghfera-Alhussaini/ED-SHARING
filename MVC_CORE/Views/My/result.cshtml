@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<div class="container">
+<h1>the result:@ViewBag.m</h1>
+
+  <h5>score: @ViewBag.t</h5>
+
+
+
+@if (ViewBag.m == "success")
+{
+<a asp-controller="My" asp-action="cirti" class="btn btn-success" asp-route-coursid="@ViewBag.q">Get certified</a>
+
+}
+else
+{
+}
+</div>

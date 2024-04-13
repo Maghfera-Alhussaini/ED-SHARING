@@ -1,0 +1,37 @@
+﻿@model MVC_CORE.Models.Result
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/student.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Result</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.studen_name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.studen_name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.exam_result)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.exam_result)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Course)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Course.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

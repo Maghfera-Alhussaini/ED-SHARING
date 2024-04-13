@@ -1,0 +1,48 @@
+﻿@model List<MVC_CORE.Models.Video>
+
+@{
+    ViewData["Title"] = "allVideos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    <div class="row">
+
+            @foreach (var i in Model)
+            {
+
+                <div class="col-lg-4 item architecture">
+                    <div class="card">
+
+                        <img src="~/img/download.png" height="200" class="img-fluid card-img" alt="" />
+
+
+
+
+
+                        <div class="card-body text-center">
+                            <p>
+                                @i.Id
+                            </p>
+                            <a href="/My/Video?id=@i.Id" class="btn btn-lg card-btn">watch video</a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+
+
+
+
+        </div>
+    </div>
+
+
+ </br>
+ </br>
+ </br>
+ </br>
+

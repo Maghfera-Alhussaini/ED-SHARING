@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewData["Title"] </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="~/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="~/css/style.css" rel="stylesheet">
+    <!--courses-->
+    <link href="~/css/course/style.css" rel="stylesheet" />
+    <!--error-->
+    <link rel="stylesheet" href="~/css/style2.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg  navbar-light shadow sticky-top p-0" style="background-color: rgb(255 187 14); margin-top: 20px; ">
+        <a href="index.cshtml" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <img style="width: 100px; height:75px;  " src="~/img/black yellow minimalist Idea Logo (5).png" />
+
+        </a>
+
+
+
+
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a asp-controller="My" asp-action="Home" class="nav-item nav-link active" onclick="setActive(this)">Home</a>
+                <a asp-controller="My" asp-action="Contact" class="nav-item nav-link" onclick="setActive(this)">Contact</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" onclick="setActive(this)">Courses</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a asp-controller="My" asp-action="Course" class="dropdown-item">All</a>
+                        <a asp-controller="My" asp-action="re_sort" class="dropdown-item">Recommended courses</a>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+                <partial name="_LoginPartial" />
+
+
+            </div>
+
+        </div>
+
+
+    </nav>
+
+
+
+
+
+
+
+
+
+
+
+ 
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+   
+    <!-- Footer Start -->
+    <div class="container-fluid  text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s" style="background-color: rgb(255 187 14)">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-black-50 mb-3">Quick Link</h4>
+                    <a class="btn btn-link" style="color:black" asp-controller="Home" asp-action="Index">About Us</a>
+                    <a class="btn btn-link" style="color:black" asp-controller="My" asp-action="contact">Contact Us</a>
+                    <a class="btn btn-link" style="color:black" asp-controller="My" asp-action="codeeditor">Code editor</a>
+
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-black-50 mb-3">Contact</h4>
+                    <p class="mb-2" style="color: black"><i class="fa fa-map-marker-alt me-3"></i>Syria, Lattakia</p>
+                    <p class="mb-2" style="color:black"><i class="fa fa-phone-alt me-3" style="color:black"></i>+963 936366984</p>
+                    <p class="mb-2" style="color:black"><i class="fa fa-envelope me-3" style="color:black"></i><a href="mailto:magihus77@gmail.com">magihus77@gmail.com </a></p>
+                    <div class="d-flex pt-2">
+
+                        <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/joud.alhussaini?mibextid=ZbWKwL"><i class="fab fa-facebook-f" style="color:black"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://t.me/Meemalhus"><i class="fab fa-telegram" style="color:black"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.linkedin.com/in/magi-hus-a37776252?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B%2BZY8oF8WSyurNS5rN6w%2F3g%3D%3D"><i class="fab fa-linkedin-in" style="color:black"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6" style="border-left:solid 1px white">
+                    <h4 class="text-black-50 mb-3">ED-SHARING</h4>
+                    <div style="display:flex; align-items:center;">
+                        <p style="color: black; flex: 1; font-family: " Roboto", sans-serif">Science is the sweet melody that flows in the realm of knowledge, combining rhythm and harmony to perform a symphony of eternal truths.</p>
+                        <img src="~/img/black yellow minimalist Idea Logo (5).png" style="width:150px; height:160px; flex:1;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="btn btn- btn-lg-square back-to-top"><img src="~/img/arr.png" style="width:75px; height:75px" class="bi bi-arrow-up"></a>
+
+
+    <style>
+
+        .navbar-light .navbar-nav .nav-link {
+            color: black
+        }
+
+            .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:active {
+                color: #FFFFFF;
+            }
+
+        .dropdown-item:hover {
+            background-color: rgb(255 187 14);
+        }
+
+        body {
+            background-color: #fff
+        }
+
+        .btn-outline:hover {
+            background-color: rgb(214, 210, 196);
+        }
+
+     
+
+        .nav-item.nav-link.active {
+            color: white;
+        }
+        a{
+            color:black;
+        }
+    
+    </style>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/wow/wow.min.js"></script>
+    <script src="~/lib/easing/easing.min.js"></script>
+    <script src="~/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="~/js/main.js"></script>
+
+    <!--course js-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="~/js/course/isotope.min.js"></script>
+    <script src="~/js/course/script.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿@model List<MVC_CORE.Models.Course>
+@{
+    ViewData["Title"] = "Course";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<!--courses-->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="filters text-center">
+
+                <li class="active"><a asp-action="Course" asp-controller="My" asp-route-id="0">All</a></li>
+                @foreach (var m in ViewBag.x)
+                {
+
+                    <li><a asp-controller="My" asp-action="Course" asp-route-id="@m.Id">@m.title</a></li>
+
+                }
+                
+            </ul>
+            <div class="projects">
+                <div class="row">
+
+                    @foreach (var i in Model)
+                    {
+
+                        <div class="col-lg-4 item architecture">
+                            <div class="card">
+                                <div class="card-head">
+                                    <img src="~/course/@Url.Content(i.image)" class="img-fluid card-img" alt="" />
+                                    <div class="card-img-overlay"><h2>@i.Title</h2></div>
+                                   
+                                </div>
+                                <div class="card-body text-center">
+                                    <h4 class="title">BY: @i.teacher </h4>
+                                    <h4 class="title">course code: @i.Id </h4>
+                                  
+                                    <a   asp-controller="My" asp-action="CourseDescription" asp-route-id="@i.Id" class="btn btn-lg card-btn">Videos</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    }
+
+
+
+
+
+                    </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+

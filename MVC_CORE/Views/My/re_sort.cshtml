@@ -1,0 +1,51 @@
+﻿@model List<MVC_CORE.Models.Course>
+
+@{
+    ViewData["Title"] = "allVideos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--courses-->
+<div class="container mt-4" >
+    <div class="row">
+        <div class="col-lg-12">
+           
+            <div class="projects">
+                <div class="row">
+
+                    @foreach (var i in Model)
+                    {
+
+                        <div class="col-lg-4 item architecture">
+                            <div class="card">
+                                <div class="card-head">
+                                    <img src="~/course/@Url.Content(i.image)" class="img-fluid card-img" alt="" />
+                                    <div class="card-img-overlay"><h2>@i.Title</h2></div>
+                                    <div class="card-hover">
+                                     
+                                    
+                                    </div>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h4 class="title">BY: @i.teacher </h4>
+                                    <a href="allVideos/@i.Rate" class="btn btn-lg card-btn">See more</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
